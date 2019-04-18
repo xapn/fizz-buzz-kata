@@ -79,12 +79,9 @@ class FizzBuzzTest {
             StringBuilder fizzbuzzified = new StringBuilder();
             fizzbuzzified
                     .append(multipleOf3(number) ? FIZZ : NOTHING)
-                    .append(multipleOf5(number) ? BUZZ : NOTHING);
-            if (fizzbuzzified.length() == 0) {
-                return valueOf(number);
-            } else {
-                return fizzbuzzified.toString();
-            }
+                    .append(multipleOf5(number) ? BUZZ : NOTHING)
+                    .append(fizzbuzzified.length() == 0 ? valueOf(number) : NOTHING);
+            return fizzbuzzified.toString();
         }
 
         private boolean multipleOf3(int number) {
