@@ -30,15 +30,23 @@ import static testasyouthink.TestAsYouThink.resultOf;
 class FizzBuzzTest {
 
     String fizzbuzzify(int number) {
-        if (number % 3 == 0 && number % 5 == 0) {
+        if (multipleOf3(number) && multipleOf5(number)) {
             return "Fizz" + "Buzz";
-        } else if (number % 3 == 0) {
+        } else if (multipleOf3(number)) {
             return "Fizz";
-        } else if (number % 5 == 0) {
+        } else if (multipleOf5(number)) {
             return "Buzz";
         } else {
             return valueOf(number);
         }
+    }
+
+    private boolean multipleOf3(int number) {
+        return number % 3 == 0;
+    }
+
+    private boolean multipleOf5(int number) {
+        return number % 5 == 0;
     }
 
     @Test
