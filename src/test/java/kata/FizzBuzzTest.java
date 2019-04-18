@@ -22,31 +22,66 @@
 
 package kata;
 
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static testasyouthink.TestAsYouThink.givenSut;
 import static testasyouthink.TestAsYouThink.resultOf;
-import static testasyouthink.TestAsYouThink.when;
 
 class FizzBuzzTest {
 
-    @Test
-    void should_behave_given_context() {
-        // Choose the proper syntax for your test case.
+    @Nested
+    class Given_not_a_multiple {
 
-        resultOf(() -> "TestAsYouThink").isEqualTo("TestAsYouThink");
+        @Test
+        void should_get_1_given_1() {
+            resultOf(() -> new FizzBuzz().fizzbuzzify(1)).isEqualTo("1");
+        }
 
-        when(() -> "TestAsYouThink").then(result -> {
-            assertThat(result)
-                    .startsWith("Test")
-                    .hasSize(14);
-        });
+        @Test
+        void should_get_2_given_2() {
+            resultOf(() -> new FizzBuzz().fizzbuzzify(2)).isEqualTo("2");
+        }
+    }
 
-        givenSut(StringBuilder::new)
-                .whenSutRuns(sut -> sut
-                        .append("TestAsYouThink")
-                        .reverse())
-                .then(sut -> assertThat(sut).containsSequence("knihTuoYsAtseT"));
+    @Nested
+    class Given_a_multiple_of_3 {
+
+        @Test
+        void should_get_Fizz_given_3() {
+            resultOf(() -> new FizzBuzz().fizzbuzzify(3)).isEqualTo("Fizz");
+        }
+
+        @Test
+        void should_get_Fizz_given_6() {
+            resultOf(() -> new FizzBuzz().fizzbuzzify(6)).isEqualTo("Fizz");
+        }
+    }
+
+    @Nested
+    class Given_a_multiple_of_5 {
+
+        @Test
+        void should_get_Buzz_given_5() {
+            resultOf(() -> new FizzBuzz().fizzbuzzify(5)).isEqualTo("Buzz");
+        }
+
+        @Test
+        void should_get_Buzz_given_10() {
+            resultOf(() -> new FizzBuzz().fizzbuzzify(10)).isEqualTo("Buzz");
+        }
+    }
+
+    @Nested
+    class Given_a_multiple_of_3_and_5 {
+
+        @Test
+        void should_get_FizzBuzz_given_15() {
+            resultOf(() -> new FizzBuzz().fizzbuzzify(15)).isEqualTo("FizzBuzz");
+        }
+
+        @Test
+        void should_get_FizzBuzz_given_30() {
+            resultOf(() -> new FizzBuzz().fizzbuzzify(30)).isEqualTo("FizzBuzz");
+        }
     }
 }
