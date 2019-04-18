@@ -59,6 +59,18 @@ class FizzBuzzTest {
                 });
     }
 
+    @Test
+    void should_get_fizzbuzzified_numbers_given_30_as_a_lower_bound_and_50_as_an_upper_bound() {
+        givenSutClass(FizzBuzz.class)
+                .whenSutReturns(sut -> sut
+                        .fizzbuzzify()
+                        .from(30)
+                        .until(50))
+                .then(result -> {
+                    assertThat(result).hasSize(21);
+                });
+    }
+
     @Nested
     class Given_not_a_multiple {
 
