@@ -29,63 +29,66 @@ import static testasyouthink.TestAsYouThink.resultOf;
 
 class FizzBuzzTest {
 
-    String fizzbuzzify(int number) {
-        if (multipleOf3(number) && multipleOf5(number)) {
-            return "Fizz" + "Buzz";
-        } else if (multipleOf3(number)) {
-            return "Fizz";
-        } else if (multipleOf5(number)) {
-            return "Buzz";
-        } else {
-            return valueOf(number);
-        }
-    }
-
-    private boolean multipleOf3(int number) {
-        return number % 3 == 0;
-    }
-
-    private boolean multipleOf5(int number) {
-        return number % 5 == 0;
-    }
-
     @Test
     void should_get_1_given_1() {
-        resultOf(() -> fizzbuzzify(1)).isEqualTo("1");
+        resultOf(() -> new FizzBuzz().fizzbuzzify(1)).isEqualTo("1");
     }
 
     @Test
     void should_get_2_given_2() {
-        resultOf(() -> fizzbuzzify(2)).isEqualTo("2");
+        resultOf(() -> new FizzBuzz().fizzbuzzify(2)).isEqualTo("2");
     }
 
     @Test
     void should_get_Fizz_given_3() {
-        resultOf(() -> fizzbuzzify(3)).isEqualTo("Fizz");
+        resultOf(() -> new FizzBuzz().fizzbuzzify(3)).isEqualTo("Fizz");
     }
 
     @Test
     void should_get_Buzz_given_5() {
-        resultOf(() -> fizzbuzzify(5)).isEqualTo("Buzz");
+        resultOf(() -> new FizzBuzz().fizzbuzzify(5)).isEqualTo("Buzz");
     }
 
     @Test
     void should_get_Fizz_given_6() {
-        resultOf(() -> fizzbuzzify(6)).isEqualTo("Fizz");
+        resultOf(() -> new FizzBuzz().fizzbuzzify(6)).isEqualTo("Fizz");
     }
 
     @Test
     void should_get_Buzz_given_10() {
-        resultOf(() -> fizzbuzzify(10)).isEqualTo("Buzz");
+        resultOf(() -> new FizzBuzz().fizzbuzzify(10)).isEqualTo("Buzz");
     }
 
     @Test
     void should_get_FizzBuzz_given_15() {
-        resultOf(() -> fizzbuzzify(15)).isEqualTo("FizzBuzz");
+        resultOf(() -> new FizzBuzz().fizzbuzzify(15)).isEqualTo("FizzBuzz");
     }
 
     @Test
     void should_get_FizzBuzz_given_30() {
-        resultOf(() -> fizzbuzzify(30)).isEqualTo("FizzBuzz");
+        resultOf(() -> new FizzBuzz().fizzbuzzify(30)).isEqualTo("FizzBuzz");
+    }
+
+    static class FizzBuzz {
+
+        String fizzbuzzify(int number) {
+            if (multipleOf3(number) && multipleOf5(number)) {
+                return "Fizz" + "Buzz";
+            } else if (multipleOf3(number)) {
+                return "Fizz";
+            } else if (multipleOf5(number)) {
+                return "Buzz";
+            } else {
+                return valueOf(number);
+            }
+        }
+
+        private boolean multipleOf3(int number) {
+            return number % 3 == 0;
+        }
+
+        private boolean multipleOf5(int number) {
+            return number % 5 == 0;
+        }
     }
 }
