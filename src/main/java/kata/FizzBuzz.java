@@ -25,7 +25,8 @@ package kata;
 import java.util.List;
 
 import static java.lang.String.valueOf;
-import static java.util.Collections.singletonList;
+import static java.util.stream.Collectors.toList;
+import static java.util.stream.IntStream.rangeClosed;
 
 public class FizzBuzz {
 
@@ -54,7 +55,9 @@ public class FizzBuzz {
         return this;
     }
 
-    public List<String> until(int number) {
-        return singletonList("1");
+    public List<String> until(int upperBound) {
+        return rangeClosed(1, upperBound)
+                .mapToObj(this::fizzbuzzify)
+                .collect(toList());
     }
 }

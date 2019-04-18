@@ -46,6 +46,19 @@ class FizzBuzzTest {
                 });
     }
 
+    @Test
+    void should_get_fizzbuzzified_numbers_given_100_as_an_upper_bound() {
+        givenSutClass(FizzBuzz.class)
+                .whenSutReturns(sut -> sut
+                        .fizzbuzzify()
+                        .until(100))
+                .then(result -> {
+                    assertThat(result)
+                            .hasSize(100)
+                            .allMatch(fizzbuzzified -> fizzbuzzified.matches("^[1-9]{0,1}[0-9]|(Fizz|Buzz|FizzBuzz)$"));
+                });
+    }
+
     @Nested
     class Given_not_a_multiple {
 
