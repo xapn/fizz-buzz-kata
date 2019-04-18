@@ -71,15 +71,19 @@ class FizzBuzzTest {
 
     static class FizzBuzz {
 
+        private static final String NOTHING = "";
+        private static final String FIZZ = "Fizz";
+        private static final String BUZZ = "Buzz";
+
         String fizzbuzzify(int number) {
-            if (multipleOf3(number) && multipleOf5(number)) {
-                return "Fizz" + "Buzz";
-            } else if (multipleOf3(number)) {
-                return "Fizz";
-            } else if (multipleOf5(number)) {
-                return "Buzz";
-            } else {
+            StringBuilder fizzbuzzified = new StringBuilder();
+            fizzbuzzified
+                    .append(multipleOf3(number) ? FIZZ : NOTHING)
+                    .append(multipleOf5(number) ? BUZZ : NOTHING);
+            if (fizzbuzzified.length() == 0) {
                 return valueOf(number);
+            } else {
+                return fizzbuzzified.toString();
             }
         }
 
