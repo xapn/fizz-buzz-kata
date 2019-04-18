@@ -25,9 +25,26 @@ package kata;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static testasyouthink.TestAsYouThink.givenSutClass;
 import static testasyouthink.TestAsYouThink.resultOf;
 
 class FizzBuzzTest {
+
+    @Test
+    void should_get_a_list_of_fizzbuzzified_numbers_given_1() {
+        givenSutClass(FizzBuzz.class)
+                .whenSutReturns(sut -> sut
+                        .fizzbuzzify()
+                        .until(1))
+                .then(result -> {
+                    assertThat(result)
+                            .isInstanceOf(List.class)
+                            .hasSize(1);
+                });
+    }
 
     @Nested
     class Given_not_a_multiple {
