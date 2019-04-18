@@ -29,7 +29,7 @@ import static testasyouthink.TestAsYouThink.givenSut;
 import static testasyouthink.TestAsYouThink.resultOf;
 import static testasyouthink.TestAsYouThink.when;
 
-class KataTest {
+class FizzBuzzTest {
 
     @Test
     void should_behave_given_context() {

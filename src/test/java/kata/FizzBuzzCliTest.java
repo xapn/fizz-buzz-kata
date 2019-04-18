@@ -27,11 +27,11 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 import static testasyouthink.TestAsYouThink.when;
 
-class KataCliTest {
+class FizzBuzzCliTest {
 
     @Test
     void should_display_hello_world() {
-        when(() -> KataCli.main(null)).thenStandardOutput(
+        when(() -> FizzBuzzCli.main(null)).thenStandardOutput(
                 stdout -> assertThat(stdout).hasContent("Master any code kata as a craftsman!"));
     }
 }
