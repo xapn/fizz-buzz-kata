@@ -30,7 +30,11 @@ import static testasyouthink.TestAsYouThink.resultOf;
 class FizzBuzzTest {
 
     String fizzbuzzify(int number) {
-        return valueOf(number);
+        if (number == 3) {
+            return "Fizz";
+        } else {
+            return valueOf(number);
+        }
     }
 
     @Test
@@ -41,5 +45,10 @@ class FizzBuzzTest {
     @Test
     void should_get_2_given_2() {
         resultOf(() -> fizzbuzzify(2)).isEqualTo("2");
+    }
+
+    @Test
+    void should_get_Fizz_given_3() {
+        resultOf(() -> fizzbuzzify(3)).isEqualTo("Fizz");
     }
 }
