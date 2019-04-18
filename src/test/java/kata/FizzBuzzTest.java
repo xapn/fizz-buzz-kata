@@ -25,6 +25,10 @@ package kata;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static testasyouthink.TestAsYouThink.givenSutClass;
 import static testasyouthink.TestAsYouThink.resultOf;
 
 class FizzBuzzTest {
@@ -82,6 +86,49 @@ class FizzBuzzTest {
         @Test
         void should_get_FizzBuzz_given_30() {
             resultOf(() -> new FizzBuzz().fizzbuzzify(30)).isEqualTo("FizzBuzz");
+        }
+    }
+
+    @Nested
+    class Given_an_interval_of_numbers {
+
+        @Test
+        void should_get_a_list_of_fizzbuzzified_numbers_given_1() {
+            givenSutClass(FizzBuzz.class)
+                    .whenSutReturns(sut -> sut
+                            .fizzbuzzify()
+                            .until(1))
+                    .then(result -> {
+                        assertThat(result)
+                                .isInstanceOf(List.class)
+                                .hasSize(1);
+                    });
+        }
+
+        @Test
+        void should_get_fizzbuzzified_numbers_given_100_as_an_upper_bound() {
+            givenSutClass(FizzBuzz.class)
+                    .whenSutReturns(sut -> sut
+                            .fizzbuzzify()
+                            .until(100))
+                    .then(result -> {
+                        assertThat(result)
+                                .hasSize(100)
+                                .allMatch(fizzbuzzified -> fizzbuzzified.matches(
+                                        "^[1-9]{0,1}[0-9]|(Fizz|Buzz|FizzBuzz)$"));
+                    });
+        }
+
+        @Test
+        void should_get_fizzbuzzified_numbers_given_30_as_a_lower_bound_and_50_as_an_upper_bound() {
+            givenSutClass(FizzBuzz.class)
+                    .whenSutReturns(sut -> sut
+                            .fizzbuzzify()
+                            .from(30)
+                            .until(50))
+                    .then(result -> {
+                        assertThat(result).hasSize(21);
+                    });
         }
     }
 }
