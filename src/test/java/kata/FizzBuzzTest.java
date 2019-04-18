@@ -25,34 +25,9 @@ package kata;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
-import static java.lang.String.valueOf;
 import static testasyouthink.TestAsYouThink.resultOf;
 
 class FizzBuzzTest {
-
-    static class FizzBuzz {
-
-        private static final String NOTHING = "";
-        private static final String FIZZ = "Fizz";
-        private static final String BUZZ = "Buzz";
-
-        String fizzbuzzify(int number) {
-            StringBuilder fizzbuzzified = new StringBuilder();
-            fizzbuzzified
-                    .append(multipleOf3(number) ? FIZZ : NOTHING)
-                    .append(multipleOf5(number) ? BUZZ : NOTHING)
-                    .append(fizzbuzzified.length() == 0 ? valueOf(number) : NOTHING);
-            return fizzbuzzified.toString();
-        }
-
-        private boolean multipleOf3(int number) {
-            return number % 3 == 0;
-        }
-
-        private boolean multipleOf5(int number) {
-            return number % 5 == 0;
-        }
-    }
 
     @Nested
     class Given_not_a_multiple {
