@@ -33,11 +33,6 @@ public class FizzBuzz {
     private static final String NOTHING = "";
     private static final String FIZZ = "Fizz";
     private static final String BUZZ = "Buzz";
-    private int lowerBound;
-
-    public FizzBuzz() {
-        lowerBound = 1;
-    }
 
     public String fizzbuzzify(int number) {
         StringBuilder fizzbuzzified = new StringBuilder();
@@ -56,18 +51,27 @@ public class FizzBuzz {
         return number % 5 == 0;
     }
 
-    public FizzBuzz fizzbuzzify() {
-        return this;
+    public IntervalToFuzzbuzzify fizzbuzzify() {
+        return new IntervalToFuzzbuzzify();
     }
 
-    public FizzBuzz from(int lowerBound) {
-        this.lowerBound = lowerBound;
-        return this;
-    }
+    class IntervalToFuzzbuzzify {
 
-    public List<String> until(int upperBound) {
-        return rangeClosed(lowerBound, upperBound)
-                .mapToObj(this::fizzbuzzify)
-                .collect(toList());
+        private int lowerBound;
+
+        IntervalToFuzzbuzzify() {
+            lowerBound = 1;
+        }
+
+        public IntervalToFuzzbuzzify from(int lowerBound) {
+            this.lowerBound = lowerBound;
+            return this;
+        }
+
+        public List<String> until(int upperBound) {
+            return rangeClosed(lowerBound, upperBound)
+                    .mapToObj(FizzBuzz.this::fizzbuzzify)
+                    .collect(toList());
+        }
     }
 }
