@@ -32,7 +32,7 @@ class FizzBuzzTest {
     String fizzbuzzify(int number) {
         if (number % 3 == 0) {
             return "Fizz";
-        } else if (number == 5) {
+        } else if (number % 5 == 0) {
             return "Buzz";
         } else {
             return valueOf(number);
@@ -62,5 +62,10 @@ class FizzBuzzTest {
     @Test
     void should_get_Fizz_given_6() {
         resultOf(() -> fizzbuzzify(6)).isEqualTo("Fizz");
+    }
+
+    @Test
+    void should_get_Buzz_given_10() {
+        resultOf(() -> fizzbuzzify(10)).isEqualTo("Buzz");
     }
 }
