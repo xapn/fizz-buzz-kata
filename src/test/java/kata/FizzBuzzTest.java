@@ -28,8 +28,12 @@ import static testasyouthink.TestAsYouThink.resultOf;
 
 class FizzBuzzTest {
 
+    String fizzbuzzify() {
+        return "1";
+    }
+
     @Test
     void should_get_1_given_1() {
-        resultOf(() -> "1").isEqualTo("1");
+        resultOf(() -> fizzbuzzify()).isEqualTo("1");
     }
 }
