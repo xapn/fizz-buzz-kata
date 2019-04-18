@@ -24,16 +24,22 @@ package kata;
 
 import org.junit.jupiter.api.Test;
 
+import static java.lang.String.valueOf;
 import static testasyouthink.TestAsYouThink.resultOf;
 
 class FizzBuzzTest {
 
-    String fizzbuzzify() {
-        return "1";
+    String fizzbuzzify(int number) {
+        return valueOf(number);
     }
 
     @Test
     void should_get_1_given_1() {
-        resultOf(() -> fizzbuzzify()).isEqualTo("1");
+        resultOf(() -> fizzbuzzify(1)).isEqualTo("1");
+    }
+
+    @Test
+    void should_get_2_given_2() {
+        resultOf(() -> fizzbuzzify(2)).isEqualTo("2");
     }
 }
