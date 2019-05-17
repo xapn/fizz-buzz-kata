@@ -1,5 +1,10 @@
 # Code Kata: Fizz-Buzz
 
+[![Total lines](https://tokei.rs/b1/github/xapn/fizz-buzz-kata?category=lines)](https://github.com/xapn/fizz-buzz-kata)
+[![Comments](https://tokei.rs/b1/github/xapn/fizz-buzz-kata?category=comments)](https://github.com/xapn/fizz-buzz-kata)
+[![Blank lines](https://tokei.rs/b1/github/xapn/fizz-buzz-kata?category=blanks)](https://github.com/xapn/fizz-buzz-kata)
+[![TestAsYouThink badge](https://img.shields.io/badge/Tests%20as%20first--class%20citizens%20with-TestAsYouThink-brightgreen.svg)](https://testasyouthink.org)
+
 ## A little history
 
 [Fizz-Buzz](https://en.wikipedia.org/wiki/Fizz_buzz) is originally a game to help kids to learn the mathematical division by playing with numbers. If a number has a given factor, it is replaced with the matching word: "Fizz" when divisible by 3, "Buzz" when divisible by 5. Later Fizz-Buzz becomes a well-known short programming problem to select developer candidates during job interviews. Fizz-Buzz is also used as an [icebreaker](https://en.wikipedia.org/wiki/Icebreaker_(facilitation)) for adult groups, in the training, facilitation or [Agile](http://agilemanifesto.org/) background.
